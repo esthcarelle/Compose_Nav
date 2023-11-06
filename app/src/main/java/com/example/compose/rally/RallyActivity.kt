@@ -58,7 +58,8 @@ fun RallyApp() {
         val currentDestination = currentBackStack?.destination
 
         // Change the variable to this and use Overview as a backup screen if this returns null
-        val currentScreen = rallyTabRowScreens.find { it.route == currentDestination?.route } ?: Overview
+        val currentScreen =
+            rallyTabRowScreens.find { it.route == currentDestination?.route } ?: Overview
 
         // ...
         Scaffold(
@@ -76,7 +77,12 @@ fun RallyApp() {
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(route = Overview.route) {
-                    OverviewScreen()
+                    OverviewScreen(onClickSeeAllAccounts = {
+                        navController.navigateSingleTopTo(Accounts.route)
+                    },
+                        onClickSeeAllBills = {
+                            navController.navigateSingleTopTo(Bills.route)
+                        })
                 }
                 composable(route = Accounts.route) {
                     AccountsScreen()
