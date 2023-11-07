@@ -93,7 +93,8 @@ fun RallyApp() {
                 }
                 composable(
                     route =
-                    "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}"
+                    "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}",
+                    arguments =  SingleAccount.arguments
                 ) {
                     SingleAccountScreen()
                 }
