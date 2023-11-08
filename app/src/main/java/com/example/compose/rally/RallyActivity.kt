@@ -96,7 +96,12 @@ fun RallyApp() {
                     "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}",
                     arguments =  SingleAccount.arguments
                 ) {
-                    SingleAccountScreen()
+                        navBackStackEntry ->
+                    // Retrieve the passed argument
+                    val accountType =
+                        navBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
+
+                    SingleAccountScreen(accountType)
                 }
             }
         }
