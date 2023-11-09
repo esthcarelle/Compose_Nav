@@ -81,6 +81,10 @@ fun RallyApp() {
                     OverviewScreen(onClickSeeAllAccounts = {
                         navController.navigateSingleTopTo(Accounts.route)
                     },
+                        onAccountClick = { accountType ->
+                            navController
+                                .navigateSingleTopTo("${SingleAccount.route}/$accountType")
+                        },
                         onClickSeeAllBills = {
                             navController.navigateSingleTopTo(Bills.route)
                         })
@@ -93,9 +97,8 @@ fun RallyApp() {
                 }
                 composable(
                     route = SingleAccount.routeWithArgs,
-                    arguments =  SingleAccount.arguments
-                ) {
-                        navBackStackEntry ->
+                    arguments = SingleAccount.arguments
+                ) { navBackStackEntry ->
                     // Retrieve the passed argument
                     val accountType =
                         navBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
