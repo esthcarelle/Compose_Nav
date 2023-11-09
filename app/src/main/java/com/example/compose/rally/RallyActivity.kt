@@ -83,7 +83,7 @@ fun RallyApp() {
                     },
                         onAccountClick = { accountType ->
                             navController
-                                .navigateSingleTopTo("${SingleAccount.route}/$accountType")
+                                .navigateToSingleAccount(accountType)
                         },
                         onClickSeeAllBills = {
                             navController.navigateSingleTopTo(Bills.route)
