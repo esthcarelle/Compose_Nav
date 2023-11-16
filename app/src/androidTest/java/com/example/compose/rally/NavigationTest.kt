@@ -9,7 +9,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -26,7 +26,7 @@ class NavigationTest {
             // Creates a TestNavHostController
             navController =
                 TestNavHostController(LocalContext.current)
-            // Sets a ComposeNavigator to the navController so it can navigate through composables
+            // Sets a ComposeNavigator to the navController so it can navigate through Composable
             navController.navigatorProvider.addNavigator(
                 ComposeNavigator()
             )
