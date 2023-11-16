@@ -7,6 +7,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -16,7 +17,7 @@ class NavigationTest {
 
     private lateinit var navController: TestNavHostController
 
-    @Test
+    @Before
     fun rallyNavHost() {
         composeTestRule.setContent {
             // Creates a TestNavHostController
@@ -28,6 +29,9 @@ class NavigationTest {
             )
             RallyNavHost(navController = navController)
         }
+    }
+    @Test
+    fun rallyNavHost_verifyOverviewStartDestination() {
         composeTestRule
             .onNodeWithContentDescription("Overview Screen")
             .assertIsDisplayed()
